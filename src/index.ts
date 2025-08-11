@@ -82,7 +82,7 @@ export async function handleAddMessage(msg: addMessageType) {
     message: cleanedMessage,
     user: {
       username: msg.user.username,
-      place: handlePlace(msg.user.username),
+      place: msg.user.isStreamer ? null : handlePlace(msg.user.username),
     },
     timestamp: Date.now(),
     source: msg.source,
